@@ -8,7 +8,8 @@ window.onload=loaded;
 
 $(function(){
     var msg;
-    var START,END;
+    var START,START2,END;
+    var timeOutEvent;
     var recordTimer;
     var isPlay = true;
     var recordBtn = $('.recordBtn');
@@ -92,7 +93,7 @@ $(function(){
         })
     }
 
-    //开始录音
+    //按下录音按钮
     recordBtn.on('touchstart',function(event){
         changeActive($(this),'pressDown');
         event.preventDefault();
@@ -100,16 +101,24 @@ $(function(){
         recordTimer = setTimeout(function(){
             wx.startRecord({
                 success: function(){
-                    alert('用户同意授权录音');
+                    //alert('用户同意授权录音');
+                    var recordTimer2 =  setInterval(function(){//判断30s
+                        START2 = new Date().getTime();
+                        if((START2 - START) > 30000){
+                            stopRecord();
+                            clearInterval(recordTimer2);
+                        }
+                    }, 1000);
                 },
                 cancel: function () {
-                    alert('用户拒绝授权录音');
+                    //alert('用户拒绝授权录音');
                 }
             });
         },300);
     })
 
-    //录音结束
+
+    //离开录音按钮
     recordBtn.on('touchend',function(event){
         changeActive($(this),'pressUp')
         event.preventDefault();
@@ -119,23 +128,25 @@ $(function(){
             START = 0;
             //小于1s，不录音
             clearTimeout(recordTimer);
-        }else{
-            showPop('tcc');
-            newVoice('');
-            affirmBtn('');
-            wx.stopRecord({
-              success: function (res) {
+        }else if((END - START) < 30000){
+            stopRecord();
+        }
+    })
+
+    //停止录音
+    function stopRecord(){
+        wx.stopRecord({
+            success: function (res) {
                 var voiceLocalId = res.localId;
                 showPop('tcc');
                 newVoice(voiceLocalId);
                 affirmBtn(voiceLocalId);
-              },
-              fail: function (res) {
+            },
+            fail: function (res) {
                 alert(JSON.stringify(res));
-              }
-            });
-        }
-    })
+            }
+        });
+    }
 
     //当前录音试听
     function newVoice(voiceLocalId) { 
