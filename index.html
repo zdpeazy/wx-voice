@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>大合唱</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <script>
+        (function(doc,win){var docEl=doc.documentElement,resizeEvt='orientationchange'in window?'orientationchange':'resize',recalc=function(){var clientWidth=docEl.clientWidth;if(!clientWidth)return;docEl.style.fontSize=16*1.333*(clientWidth/320)+'px'};if(!doc.addEventListener)return;win.addEventListener(resizeEvt,recalc,false);doc.addEventListener('DOMContentLoaded',recalc,false)})(document,window);
+    </script>
+</head>
+<body>
+<div class="wrapper" id="wrapper">
+    <div class="voiceBox" id="voiceBox">
+        <ul>
+        </ul>
+    </div>
+    <div class="footer wbox">
+        <button class="recordBtn wbox-flex">
+            我也发起
+        </button>
+        <button class="wbox-flex">
+            我也要发起
+        </button>
+    </div>
+</div>
+<!--蒙板-->
+<div id="mask" onclick="hidePop('tcc')"></div>
+<!--弹出层-->
+<div id="tcc">  
+    <div class="voiceWarp">
+        <input class="newVoiceBtn audioBtn" type="button" value="new_voice" />
+    </div>
+    <div class="footer wbox">
+        <button onclick="hidePop('tcc')" class="wbox-flex">取消</button>
+        <button class="pageTwoBtn" class="wbox-flex">确认</button>
+    </div>
+</div>
+
+<script src="js/zepto.min.js"></script>
+<script src="js/iscroll.js"></script>
+<script src="js/jweixin-1.0.0.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

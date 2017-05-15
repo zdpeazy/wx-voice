@@ -1,0 +1,11 @@
+{ "data": [
+
+{ "userName": "a", "userImgUrl":"http://ziyingpingtai.oss-cn-qingdao.aliyuncs.com/spePic/teamVoice/Img1.png", "serverId": "VOICE_1", "voiceUrl": "http://ziyingpingtai.oss-cn-qingdao.aliyuncs.com/spePic/teamVoice/1.mp3" },
+
+{ "userName": "b", "userImgUrl":"http://ziyingpingtai.oss-cn-qingdao.aliyuncs.com/spePic/teamVoice/Img2.png", "serverId": "VOICE_2", "voiceUrl": "http://ziyingpingtai.oss-cn-qingdao.aliyuncs.com/spePic/teamVoice/2.mp3" },
+
+{ "userName": "c", "userImgUrl":"http://ziyingpingtai.oss-cn-qingdao.aliyuncs.com/spePic/teamVoice/Img3.png", "serverId": "VOICE_3", "voiceUrl": "http://ziyingpingtai.oss-cn-qingdao.aliyuncs.com/spePic/teamVoice/3.mp3" },
+
+{ "userName": "d", "userImgUrl":"http://ziyingpingtai.oss-cn-qingdao.aliyuncs.com/spePic/teamVoice/Img4.png", "serverId": "VOICE_4", "voiceUrl": "http://ziyingpingtai.oss-cn-qingdao.aliyuncs.com/spePic/teamVoice/4.mp3" }
+
+]}
